@@ -18,13 +18,13 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full border-b bg-background">
+    <header className="w-full border-b bg-background sticky top-0  z-10">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Logo */}
+        
         <a href="/" className="text-xl font-semibold">Group Permutation Simulator</a>
-        {/* Actions */}
+        
         <div className="flex items-center space-x-4">
-          {/* Theme Toggle */}
+          
           <Button variant="ghost" onClick={toggleTheme} size="icon">
             {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>

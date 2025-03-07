@@ -21,7 +21,7 @@ const formSchema = z.object({
   requestDate: z.string().nonempty({ message: "Request date is required" }),
 })
 
-export function StudentForm() {
+export function StudentForm({className}: {className?: string}) {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,7 +42,7 @@ export function StudentForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 border rounded-lg p-4 shadow">
+      <form onSubmit={form.handleSubmit(onSubmit)} className={`space-y-8 border rounded-lg p-4 shadow ${className}`}>
       <h2 className="text-xl font-semibold text-center ">Simulate a student request</h2>
         <FormField
           control={form.control}
