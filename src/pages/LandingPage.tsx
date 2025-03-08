@@ -45,7 +45,7 @@ function LandingPage() {
                 </h1>  
             </BlurFade>
 
-            <BlurFade  className='flex items-center justify-center' inView>
+            <BlurFade  className='flex items-center justify-center' inViewMargin='-40%' inView>
                 <Card className='lg:max-w-[50%] max-w-[80%]'>
                     <CardHeader className='flex items-center justify-center gap-4'>
                     
@@ -59,7 +59,7 @@ function LandingPage() {
                 </Card>
             </BlurFade>
 
-            <BlurFade className='flex items-center justify-center' inView>
+            <BlurFade className='flex items-center justify-center' inViewMargin='-40%' inView>
                 <Card className='lg:max-w-[50%] max-w-[80%]'>
                     <CardHeader className='flex items-center justify-center gap-4'>
                         <CardTitle className='bg-primary border rounded-full text-white text-2xl h-14 w-14 flex items-center justify-center'><Settings2 /></CardTitle>
@@ -72,7 +72,7 @@ function LandingPage() {
                 </Card>
             </BlurFade>
 
-            <BlurFade className='flex items-center justify-center' inView>
+            <BlurFade className='flex items-center justify-center' inViewMargin='-40%' inView>
                 <Card className='lg:max-w-[50%] max-w-[80%]'>
                     <CardHeader className='flex items-center justify-center gap-4'>
                         <CardTitle className='bg-primary border rounded-full text-white text-2xl h-14 w-14 flex items-center justify-center'><SquareCheckBig /></CardTitle>
