@@ -18,8 +18,8 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full border-b bg-background sticky top-0  z-10">
-      <div className="container mx-auto flex items-center justify-between py-4 px-6">
+    <header className="w-full border-b bg-background/60 sticky top-0 backdrop-blur-md z-10">
+      <div className="container mx-auto flex items-center justify-between py-2 px-6">
         
         <a href="/" className="text-xl font-semibold">Group Permutation Simulator</a>
         
