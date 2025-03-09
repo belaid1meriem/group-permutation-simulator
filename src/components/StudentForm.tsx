@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "../components/ui/form"
 import { Input } from "../components/ui/input"
+import { memo } from "react"
 
 const formSchema = z.object({
   matricule: z.string().nonempty({ message: "Matricule is required" }),
@@ -21,7 +22,7 @@ const formSchema = z.object({
   requestDate: z.string().nonempty({ message: "Request date is required" }),
 })
 
-export function StudentForm({className}: {className?: string}) {
+export const StudentForm = memo(function StudentForm({ closeForm }: { closeForm: () => void }) {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,7 +43,7 @@ export function StudentForm({className}: {className?: string}) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className={`space-y-8 border rounded-lg p-4 shadow ${className}`}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 border rounded-lg px-10 py-4 shadow bg-background max-h-[90%]'>
       <h2 className="text-xl font-semibold text-center ">Simulate a student request</h2>
         <FormField
           control={form.control}
@@ -94,8 +95,12 @@ export function StudentForm({className}: {className?: string}) {
             </FormItem>
           )}
         />
-        <Button className="w-full" type="submit">Submit</Button>
+
+        <div className="flex items-center justify-center gap-4 w-fit ml-auto">
+          <Button variant={'outline'} type="button" onClick={closeForm}>Cancel</Button>
+          <Button className="" type="submit">Submit</Button>
+        </div>
       </form>
     </Form>
   )
-}
+})

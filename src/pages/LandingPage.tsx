@@ -7,6 +7,7 @@ import {
     CardTitle,
   } from "../components/ui/card"
 import { BlurFade } from '../components/magicui/blur-fade';
+import Footer from '../components/Footer';
   
 function LandingPage() {
   return (
@@ -109,8 +110,7 @@ function LandingPage() {
 
 
         </section>
-
-
+        <Footer/>
     </div>
   )
 }

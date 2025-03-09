@@ -1,6 +1,5 @@
 import { Button } from "../components/ui/button";
 import { Moon, Sun } from "lucide-react";
-import { stringify } from "querystring";
 import { useState } from "react";
 
 export default function Header() {
