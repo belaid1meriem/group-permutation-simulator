@@ -8,7 +8,8 @@ import {
   } from "../components/ui/card"
 import { BlurFade } from '../components/magicui/blur-fade';
 import Footer from '../components/Footer';
-  
+import { Link } from 'react-router'
+
 function LandingPage() {
   return (
     <div className="flex flex-col gap-20">
@@ -30,9 +31,11 @@ function LandingPage() {
             </BlurFade>
 
             <BlurFade  inView>
-                <InteractiveHoverButton className='my-6'>
-                    Get Started
-                </InteractiveHoverButton>
+                <Link to='/simulator'>
+                    <InteractiveHoverButton className='my-6'>
+                        Get Started
+                    </InteractiveHoverButton>
+                </Link>
             </BlurFade>
             
 
@@ -49,7 +52,6 @@ function LandingPage() {
             <BlurFade  className='flex items-center justify-center' inViewMargin='-40%' inView>
                 <Card className='lg:max-w-[50%] max-w-[80%]'>
                     <CardHeader className='flex items-center justify-center gap-4'>
-                    
                         <CardTitle className='bg-primary border rounded-full text-white text-2xl h-14 w-14 flex items-center justify-center'><Send /></CardTitle>
                         <CardTitle className='text-2xl font-semibold'>Submit Your Requests</CardTitle>
                     </CardHeader>
@@ -103,9 +105,11 @@ function LandingPage() {
             </BlurFade>
             
             <BlurFade delay={0.5} inView>
-                <InteractiveHoverButton className='my-6'>
-                    Get Started
-                </InteractiveHoverButton>
+                <Link to='/simulator'>
+                    <InteractiveHoverButton className='my-6'>
+                        Get Started
+                    </InteractiveHoverButton>
+                </Link>
             </BlurFade>
 
 

@@ -8,9 +8,11 @@ import {
   TableRow,
 } from "../components/ui/table";
 
-import {memo} from "react";
 
-const StudentTable = memo( function StudentTable() {
+
+const StudentTable = ({students}: {students: any[]}) => {
+
+  
   return (
     <div className="border rounded-md">
       <Table >
@@ -24,7 +26,7 @@ const StudentTable = memo( function StudentTable() {
         </TableHeader>
 
         <TableBody>
-          {[...Array(3)].map((_, index) => (
+          {students.map((_, index) => (
             <Fragment key={index}>
               
               <TableRow  className="max-[930px]:hidden">
@@ -34,7 +36,6 @@ const StudentTable = memo( function StudentTable() {
                 <TableCell>2025/03/03 14:30:33</TableCell>
               </TableRow>
 
-              
               <TableRow  className="hidden max-[930px]:table-row">
                 <TableCell colSpan={4} className="flex flex-col gap-4 p-4">
                   <div className="flex justify-between items-center">
@@ -62,6 +63,6 @@ const StudentTable = memo( function StudentTable() {
     </div>
     
   );
-})
+}
 
 export default StudentTable;
