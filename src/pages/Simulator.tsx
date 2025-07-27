@@ -3,9 +3,11 @@ import StudentTable from "../components/StudentTable";
 import StudentForm from "../components/StudentForm";
 import { Button } from "../components/ui/button";
 import BackgroundPattern from "../components/BackgroundPattern";
+import useProcessRequests from "../hooks/useProcessRequests";
 
 const Simulator = () => {
   const [isFormOpened, setIsFormOpened] = useState(false);
+  const { processRequest, isLoading } = useProcessRequests();
 
   const openForm = () => setIsFormOpened(true);
   const closeForm = () => setIsFormOpened(false);
@@ -20,10 +22,10 @@ const Simulator = () => {
 
       <div className="flex flex-col max-md:flex-row gap-4 max-md:gap-8 justify-start max-md:col-span-3 max-sm:flex-col max-sm:gap-2">
         <Button onClick={openForm}>Simulate a new student request</Button>
-        <Button variant="secondary">Process all requests</Button>
+        <Button variant="secondary" onClick={processRequest} disabled={isLoading}>{ isLoading ? 'Processing...' : 'Process all requests' }</Button>
       </div>
 
-      <BackgroundPattern />
+        <BackgroundPattern />
 
       {isFormOpened && <StudentForm isOpen={isFormOpened} closeForm={closeForm}  />}
     </section>

@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage"
 import Header from "./components/Header"
 import { StudentsProvider } from "./context/StudentsContext";
 import { Toaster } from "sonner";
+import { ProcessedRequestsProvider } from "./context/ProcessedRequestsContext";
 function App() {
   return (
     <div className="flex flex-col gap-4">
@@ -11,9 +12,11 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/simulator" element={
-          <StudentsProvider>
-            <Simulator />
-          </StudentsProvider>
+          <ProcessedRequestsProvider>
+            <StudentsProvider>
+              <Simulator />
+            </StudentsProvider>
+          </ProcessedRequestsProvider>
           } />
       </Routes>
       <Toaster />
