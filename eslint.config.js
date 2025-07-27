@@ -17,19 +17,17 @@ export default tseslint.config(
       globals: globals.browser,
     },
     plugins: {
+      'react-compiler': reactCompiler,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      'react-compiler': reactCompiler,
-
     },
     rules: {
+      'react-compiler/react-compiler': 'error',
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
-      'react-compiler/react-compiler': 'error',
-
     },
   },
 )

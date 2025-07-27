@@ -1,6 +1,3 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { Button } from "../components/ui/button";
 import {
   Form,
@@ -11,30 +8,12 @@ import {
   FormMessage,
 } from "../components/ui/form";
 import { Input } from "../components/ui/input";
-
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "../components/ui/dialog";
+import useAddStudentForm from "../hooks/forms/useAddStudentForm";
 
-const formSchema = z.object({
-  matricule: z.string().nonempty({ message: "Matricule is required" }),
-  currentGroup: z.string().nonempty({ message: "Original group is required" }),
-  desiredGroup: z.string().nonempty({ message: "Desired group is required" }),
-  requestDate: z.string().nonempty({ message: "Request date is required" }),
-});
 
 export default function StudentForm({ isOpen, closeForm }: { isOpen: boolean; closeForm: () => void }) {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      matricule: "",
-      currentGroup: "",
-      desiredGroup: "",
-      requestDate: "",
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  const { form, onSubmit, isSubmitting } = useAddStudentForm({ closeModal: closeForm });
 
   return (
     <Dialog open={isOpen} onOpenChange={closeForm}>
@@ -43,7 +22,7 @@ export default function StudentForm({ isOpen, closeForm }: { isOpen: boolean; cl
           <DialogTitle>Simulate a student request</DialogTitle>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={onSubmit} className="space-y-6">
             <FormField
               control={form.control}
               name="matricule"
@@ -87,7 +66,7 @@ export default function StudentForm({ isOpen, closeForm }: { isOpen: boolean; cl
               <DialogClose asChild>
                 <Button variant="outline" type="button">Cancel</Button>
               </DialogClose>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" disabled={ isSubmitting } >Submit</Button>
             </div>
           </form>
         </Form>
