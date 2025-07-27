@@ -23,7 +23,7 @@ const useProcessRequests = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post<PermutationRequest[]>('http://localhost:8000/group_permutation', {
+            const response = await axios.post<PermutationRequest[]>('https://group-permutation.onrender.com/group_permutation', {
                 students_list: students,
                 group_list: groups
             });
